@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellnest - Student Wellness Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <div>
+                <h2>Wellnest</h2>
+                <span>Better Mind • Brighter Future</span>
+            </div>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active" data-target="home">
+                🏠 Home
+            </li>
+
+            <li data-target="checkin">
+                ✅ Daily Check-In
+            </li>
+
+            <li data-target="wellness">
+                📈 My Wellness
+            </li>
+
+            <li data-target="feelings">
+                🧠 Why Am I Feeling This?
+            </li>
+
+            <li data-target="stressmap">
+                🗺️ Stress Map
+            </li>
+
+            <li data-target="academic">
+                📚 Academic Tracker
+            </li>
+
+            <li data-target="selfcare">
+                🌿 Self Care
+            </li>
+
+            <li data-target="reflection">
+                ✨ Reflection
+            </li>
+
+            <li data-target="resources">
+                📖 Resources
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOP NAV -->
+
+        <div class="topbar">
+
+            <div>
+                <h1 id="greeting">
+                    Hello 👋
+                </h1>
+
+                <p>
+                    Take a small step today for a healthier, happier you.
+                </p>
+
+            </div>
+
+            <div class="profile">
+                👤 Student
+            </div>
+
+        </div>
+
+        <!-- HOME -->
+
+        <section id="home" class="page-section">
+
+            <div class="hero-grid">
+
+                <div class="hero-card">
+
+                    <div>
+
+                        <span class="label">
+                            DAILY MENTAL CHECK-IN
+                        </span>
+
+                        <h2>
+                            How are you feeling today?
+                        </h2>
+
+                        <p>
+                            Take a moment to check in with yourself.
+                            Your well-being matters.
+                        </p>
+
+                        <button class="primary-btn" id="openCheckin">
+                            Start Check-In →
+                        </button>
+
+                    </div>
+
+                    <div class="hero-image">
+                        🌿😊
+                    </div>
+
+                </div>
+
+                <div class="motivation-card">
+
+                    <h2>☀️ You're doing great!</h2>
+
+                    <p>
+                        It's okay to have difficult days.
+                        What matters is that you keep showing up.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <h2 class="section-title">
+                Quick Access
+            </h2>
+
+            <div class="quick-grid">
+
+                <div class="quick-card">
+                    😊
+                    <h4>My Wellness</h4>
+                </div>
+
+                <div class="quick-card">
+                    🧠
+                    <h4>Why Am I Feeling This?</h4>
+                </div>
+
+                <div class="quick-card">
+                    📊
+                    <h4>Stress Map</h4>
+                </div>
+
+                <div class="quick-card">
+                    📚
+                    <h4>Academic Tracker</h4>
+                </div>
+
+                <div class="quick-card">
+                    🌿
+                    <h4>Self Care</h4>
+                </div>
+
+                <div class="quick-card">
+                    📖
+                    <h4>Resources</h4>
+                </div>
+
+            </div>
+
+            <div class="dashboard-grid">
+
+                <div class="wellness-panel">
+
+                    <h2>Your Wellness At A Glance</h2>
+
+                    <div class="wellness-cards">
+
+                        <div class="well-card">
+                            😊
+                            <h4>Mood</h4>
+                            <span id="dashboardMood">
+                                No Data
+                            </span>
+                        </div>
+
+                        <div class="well-card">
+                            😣
+                            <h4>Stress</h4>
+                            <span id="dashboardStress">
+                                No Data
+                            </span>
+                        </div>
+
+                        <div class="well-card">
+                            ⚡
+                            <h4>Energy</h4>
+                            <span id="dashboardEnergy">
+                                No Data
+                            </span>
+                        </div>
+
+                        <div class="well-card">
+                            😴
+                            <h4>Sleep</h4>
+                            <span id="dashboardSleep">
+                                No Data
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="insight-panel">
+
+                    <h3>This Week's Insight</h3>
+
+                    <p id="insightText">
+                        Complete a daily check-in to receive insights.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- DAILY CHECKIN -->
+
+        <section id="checkin" class="page-section">
+
+            <h2>Daily Mental Check-In</h2>
+
+            <form id="checkinForm">
+
+                <label>How are you feeling today?</label>
+
+                <div class="mood-container">
+
+                    <button type="button" class="mood-btn">😄 Great</button>
+                    <button type="button" class="mood-btn">🙂 Good</button>
+                    <button type="button" class="mood-btn">😐 Okay</button>
+                    <button type="button" class="mood-btn">😔 Low</button>
+                    <button type="button" class="mood-btn">😢 Very Low</button>
+
+                </div>
+
+                <input type="hidden" id="selectedMood">
+
+                <label>Stress Level</label>
+
+                <input type="range"
+                min="1"
+                max="5"
+                value="3"
+                id="stress">
+
+                <label>Energy Level</label>
+
+                <input type="range"
+                min="1"
+                max="5"
+                value="3"
+                id="energy">
+
+                <label>Hours Slept</label>
+
+                <input type="number"
+                id="sleep"
+                min="0"
+                max="24"
+                step="0.5">
+
+                <label>What happened today?</label>
+
+                <textarea id="journal"></textarea>
+
+                <button type="submit"
+                class="primary-btn">
+
+                    Save Check-In
+
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- WELLNESS -->
+
+        <section id="wellness" class="page-section">
+
+            <h2>Understand Your Patterns</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <h3>Average Mood</h3>
+                    <span id="avgMood">0</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Average Stress</h3>
+                    <span id="avgStress">0</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Average Energy</h3>
+                    <span id="avgEnergy">0</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Average Sleep</h3>
+                    <span id="avgSleep">0</span>
+                </div>
+
+            </div>
+
+            <div class="chart-box">
+
+                <h3>Recent Wellness History</h3>
+
+                <div id="historyContainer"></div>
+
+            </div>
+
+        </section>
+
+        <!-- FEELINGS -->
+
+        <section id="feelings" class="page-section">
+
+            <h2>Why Am I Feeling This?</h2>
+
+            <select id="feelingSelect">
+
+                <option>Anxious</option>
+                <option>Overwhelmed</option>
+                <option>Tired</option>
+                <option>Sad</option>
+                <option>Unmotivated</option>
+                <option>Frustrated</option>
+
+            </select>
+
+            <select id="factorSelect">
+
+                <option>Assignments</option>
+                <option>Exams</option>
+                <option>Presentations</option>
+                <option>Lack of Sleep</option>
+                <option>Social Life</option>
+                <option>Family</option>
+                <option>Financial Concerns</option>
+
+            </select>
+
+            <button class="primary-btn"
+
+            id="analyzeBtn">
+                Analyze
+            </button>
+
+            <div class="card">
+                <p id="analysisResult"></p>
+            </div>
+
+        </section>
+
+        <!-- STRESS MAP -->
+
+        <section id="stressmap" class="page-section">
+
+            <h2>My Stress Map</h2>
+
+            <div id="stressMapResults"></div>
+
+        </section>
+
+        <!-- ACADEMIC -->
+
+        <section id="academic" class="page-section">
+
+            <h2>Academic Pressure Tracker</h2>
+
+            <form id="taskForm">
+
+                <input
+                type="text"
+                id="taskName"
+                placeholder="Task Name">
+
+                <select id="taskType">
+
+                    <option>Assignment</option>
+                    <option>Exam</option>
+                    <option>Project</option>
+                    <option>Presentation</option>
+
+                </select>
+
+                <input
+                type="date"
+                id="deadline">
+
+                <select id="workload">
+
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+
+                </select>
+
+                <button class="primary-btn">
+
+                    Add Academic Task
+
+                </button>
+
+            </form>
+
+            <div id="taskContainer"></div>
+
+        </section>
+
+        <!-- SELF CARE -->
+
+        <section id="selfcare" class="page-section">
+
+            <h2>A Small Step For You Today 🌱</h2>
+
+            <div id="careContainer"></div>
+
+        </section>
+
+        <!-- REFLECTION -->
+
+        <section id="reflection" class="page-section">
+
+            <h2>Reflect On Your Week</h2>
+
+            <textarea
+            id="weeklyReflection"
+            placeholder="Write your reflection here..."></textarea>
+
+            <button
+            class="primary-btn"
+            id="saveReflection">
+
+                Save Reflection
+
+            </button>
+
+        </section>
+
+        <!-- RESOURCES -->
+
+        <section id="resources" class="page-section">
+
+            <h2>Resources</h2>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    💜 Mental Health Education
+                </div>
+
+                <div class="resource-card">
+                    🎓 Campus Support
+                </div>
+
+                <div class="resource-card">
+                    🌿 Self Care Resources
+                </div>
+
+                <div class="resource-card emergency">
+                    🚨 Emergency Support
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
